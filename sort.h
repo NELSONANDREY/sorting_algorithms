@@ -22,5 +22,6 @@ void bubble_sort(int *array, size_t size);
 void insertion_sort_list(listint_t **list);
 int check_sort(const int *array, size_t size);
 int delete_node(listint_t **list, size_t idx);
-void riverse_list(listint_t *node_exit, listint_t *node_two, listint_t *new_head, listint_t *node_tmp, listint_t **list);
+void riverse_list(listint_t *node_exit, listint_t *node_two,
+listint_t *new_head, listint_t *node_tmp, listint_t **list);
 #endif
