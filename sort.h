@@ -25,4 +25,7 @@ int delete_node(listint_t **list, size_t idx);
 void selection_sort(int *array, size_t size);
 void riverse_list(listint_t *node_exit, listint_t *node_two,
 listint_t *new_head, listint_t *node_tmp, listint_t **list);
+void qs(int *a, int l, int h);
+int partition(int *a, int l, int h);
+
 #endif
