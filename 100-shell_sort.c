@@ -1,48 +1,34 @@
 #include "sort.h"
 
 /**
- * get_max_gap - gets the a largest Knuth Sequence gap for this size
- * @size: the size of the array
- *
- * Return: the gap size
+ * shell_sort -  sorting by shell method
+ * @array: pointer to array
+ * @size: size of array
  */
-size_t get_max_gap(size_t size)
-{
-	size_t n;
 
-	n = 1;
-	while (n < size)
-		n = n * 3 + 1;
-	return ((n - 1) / 3);
-}
-
-/**
- * shell_sort - shell_sort
- * @array: the integer array to sort
- * @size: the size of the array
- *
- * Return: void
- */
 void shell_sort(int *array, size_t size)
 {
-	size_t gap, i, j;
+	unsigned int in, out, h = 1;
 	int temp;
 
-	if (!array || !size)
+	if (size < 2)
 		return;
-
-
-	for (gap = get_max_gap(size); gap; gap = (gap - 1) / 3)
+	while (h <= size / 3)
+		h = h * 3 + 1;
+	while (h > 0)
 	{
-		for (i = gap; i < size; i++)
+		for (out = h; out < size; out++)
 		{
-			temp = array[i];
-			for (j = i; j > gap - 1 && array[j - gap] > temp; j -= gap)
+			temp = array[out];
+			in = out;
+			while (in > h - 1 && array[in - h] >= temp)
 			{
-				array[j] = array[j - gap];
+				array[in] = array[in - h];
+				in = in - h;
 			}
-			array[j] = temp;
+			array[in] = temp;
 		}
+		h = (h - 1) / 3;
 		print_array(array, size);
 	}
 }
