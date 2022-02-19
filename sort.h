@@ -28,5 +28,6 @@ listint_t *new_head, listint_t *node_tmp, listint_t **list);
 void qs(int *a, int l, int h);
 int partition(int *a, int l, int h);
 void quick_sort(int *array, size_t size);
+void shell_sort(int *array, size_t size);
 
 #endif
